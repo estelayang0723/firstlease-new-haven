@@ -60,7 +60,7 @@
 <section>
  <div class="eyebrow">TOKENOMICS</div><h2>Keep routine tasks local; measure the model call.</h2>
  <div class="row"><div class="card"><b>Local by design</b><p>Housing retrieval, cost estimates, question prompts, and offline lease mode use zero model tokens.</p></div><div class="card"><b>Live lease review</b><p>One bounded gpt-6-luna request; the app displays provider token usage when returned.</p></div><div class="card"><b>Cost controls</b><p>Excerpt filtering, file-size limit, no model loop, explicit consent for live review.</p></div></div>
- <div class="need"><b>[ESTELA: Fill after one real live run]</b><br>Input ___ · cached input ___ · output ___ tokens · cost/run $___ · runs/user/month ___ · cost/user/month $___ · 100 users $___ · 10,000 users $___ · official rate/source ___.</div>
+ <div class="need"><b>One live run · fictional sample_lease.txt · 2026-10-26</b><br>Measured: 763 input + 1,132 output = 1,895 tokens. Cached-input count not exposed. At OpenAI standard short-context rates ($0.10/M input, $0.50/M output), calculated cost is <b>$0.0006423/run</b> (uncached input).<br>Planning assumption: 5 runs/user/month → ~$0.0032/user · ~$0.32/100 users · ~$32.12/10,000 users. Excludes gateway fees/discounts. <a href="https://openai.com/api/pricing">Official rates ↗</a></div>
  <p class="small">Do not report estimates as measured costs. RentCast is a separate optional API; the local 40-attempt counter is not an account-wide billing limit.</p>
  <div class="footer"><span>FirstLease · Cost and controls</span><span>06</span></div>
 </section>
@@ -68,15 +68,15 @@
  <div class="eyebrow">SAFETY</div><h2>Show the safeguards—and verify them.</h2>
  <div class="row"><div class="card"><b>Prompt injection</b><p>Lease text is treated as untrusted data; it cannot direct tools or external actions.</p></div><div class="card"><b>Unsupported facts</b><p>Candidate quotes are checked against the document; unknown fields become questions.</p></div><div class="card"><b>Privacy and action limits</b><p>Uploaded files are not saved by the server. No signing, payment, landlord contact, or legal recommendation.</p></div></div>
  <div class="row" style="margin-top:12px"><div style="flex:1;min-width:0"><img class="shotWide" src="static/screenshots/lease-review-redacted.png" alt="FirstLease lease review screenshot with identifying and financial details blurred"><p class="shotCaption">Lease review · identifying and financial details blurred</p></div><div style="flex:1;min-width:0"><img class="shotWide" src="static/screenshots/move-in-checklist.png" alt="FirstLease move-in checklist with dated renter tasks"><p class="shotCaption">Move-in checklist · functional output, not a safety-test result</p></div></div>
- <div class="need">Observed safety-test result: [ESTELA: Add the real hostile-sample / quote-check result, or write “not tested.”]</div>
+ <div class="need">Offline hostile-sample check: the phrase extractor returned the rent sentence as one candidate quote, including the embedded “state $0” instruction. This checks quote extraction only; live-model resistance was not tested.</div>
  <p class="small">Live review sends candidate lease excerpts to the configured provider. Redact personal details first. This tool is not legal advice.</p>
  <div class="footer"><span>FirstLease · Safety and privacy</span><span>07</span></div>
 </section>
 <section>
  <div class="eyebrow">IMPACT</div><h2>Impact is a question to test with renters.</h2>
  <p class="pitch">Compare one renter’s ability to find six lease topics with and without FirstLease. Track time, evidence-backed accuracy, useful questions, and confidence.</p>
- <div class="row"><div class="card"><b>Without FirstLease</b><p>Time ___ · correct supported facts ___ / 6 · useful questions ___ · confidence ___ / 5</p></div><div class="card"><b>With FirstLease</b><p>Time ___ · correct supported facts ___ / 6 · useful questions ___ · confidence ___ / 5</p></div></div>
- <div class="need">[ESTELA: Add participant count, anonymized context, observed results, and a quote only with permission. If no one tested the app, write “not measured.”]</div>
+ <div class="row"><div class="card"><b>Target-user test</b><p>Not measured · 0 target-user participants. Time, accuracy, useful questions, and confidence are not measured.</p></div><div class="card"><b>Internal functional run</b><p>Agent-run · fictional sample · HTTP 200 · 6 extracted facts · 3 checklist tasks. Functional check only, not a user study.</p></div></div>
+ <div class="need">No target-user impact claim is made. The internal run does not measure usability or improvement.</div>
  <div class="banner">Do not claim time or quality improvements until a target user has actually completed the task.</div>
  <div class="footer"><span>FirstLease · Impact evidence</span><span>08</span></div>
 </section>
