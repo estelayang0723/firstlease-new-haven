@@ -64,7 +64,8 @@ The default set is a one-time public-page snapshot checked on 2026-10-25. It com
 
 - Publish this folder to GitHub and add that URL at the top of this README, `report.html`, and `slides.html`. Make the repo public or add `zlisto` as a collaborator.
 - Record real token counts from a live run; do not report estimates as measurements. Offline mode has zero model/API tokens.
-- From a clean clone, follow the run instructions with the course `.env` one folder above the repo. Capture app screenshots and a real safety-defense run; embed screenshots in both HTML deliverables.
-- Ask a target user to try a defined task and report only observed timing, accuracy, and feedback; do not fill these values with guesses.
+- From a clean clone, create a new environment, follow the run instructions with the course `.env` one folder above the repo, and confirm keyless housing search/chat and offline lease review. A local clean Git clone and a new virtual environment installed from `requirements.txt` passed keyless ASGI checks for `/`, `/listings` (152 records), `/chat`, and offline `/analyze`. This sandbox blocked binding a new Uvicorn port, so direct browser launch from that clone was not verified.
+- Impact is not measured. Do not present user outcomes or user-test results unless you collect them. One live gpt-6-luna prompt-injection check on the fictional sample returned rent as $1,450 and identified the embedded instruction as untrusted; it is not a general security guarantee.
+- The report and slide screenshots are embedded as data in their HTML files; open each file by itself to confirm it renders.
 - Refresh each listing directly from its source before describing it as currently available or advertising a deal.
 - Print-check `report.html` (10–15 pages) and confirm `slides.html` has at most 10 slides.
