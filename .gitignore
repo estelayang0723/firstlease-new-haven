@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+uploads/
+*.pdf
+
+
+.rentcast_usage.json
+.rentcast_usage.sqlite3
+.rentcast_usage.sqlite3-shm
+.rentcast_usage.sqlite3-wal
+
+# Local API usage counters
+.rentcast_usage.*
