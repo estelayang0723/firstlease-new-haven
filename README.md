@@ -11,13 +11,25 @@ A Yale SOM-centered housing search and lease-to-move-in assistant for internatio
 3. Install dependencies: `python -m pip install -r requirements.txt`.
 4. Copy `.env.example` to `.env` if using a model or live listings. Keep secret values out of Git. The app also checks the parent folder for `.env`, as required by the course runner.
 5. Optional: add the course `PORTKEY_API_KEY` for lease-review AI (the default model is `gpt-6-luna`). No key is needed for housing search/chat or offline lease demo.
-6. Optional: add `RENTCAST_API_KEY` if you want live rentals. The live button is manual and results are cached for 20 minutes. A persistent local counter reserves at most 40 requests across restarts; failed attempts count and the counter never resets automatically. This is a local safeguard, not an account-wide billing cap.
+6. Optional local-only feature: add `RENTCAST_API_KEY` if you want live rentals. The button is manual and results are cached for 20 minutes. A SQLite counter locally reserves at most 40 attempts and failed attempts count. It is not account-wide and is not durable on hosts with ephemeral filesystems; keep this key unset on Render Free.
 7. Start: `python -m uvicorn app:app --host 127.0.0.1 --port 8000`.
 8. Open http://127.0.0.1:8000 and keep the terminal running while using the app.
 
 For a fresh-clone check, follow these steps from a new clone, put the teaching staff `.env` one folder above the repo, and confirm the app opens and the offline housing chat works without a key. The optional live listing button is never called automatically.
 
 The app also has a clearly labeled offline demonstration mode when no API key is set. Uploaded documents are processed in memory and are not saved by the server. In live mode, candidate lease excerpts (which may include dates, rent, and obligations) are sent to the configured model provider through Portkey. Redact names, signatures, account details, and addresses before uploading; do not upload unredacted personal leases.
+
+## Deploy online with Render
+
+This repository includes a `render.yaml` Blueprint. After you publish the repository to GitHub:
+
+1. In Render, choose **New → Blueprint**, connect GitHub, and select this repository. Render reads `render.yaml` from the repository root.
+2. Confirm the service name `firstlease-new-haven` and deploy. The config installs `requirements.txt` and starts FastAPI with Render's assigned `$PORT`.
+3. The service works in offline mode without any API key. If you intentionally want live lease review, add `PORTKEY_API_KEY` in the Render service's Environment settings. Never put the key in GitHub, `render.yaml`, or screenshots. The model defaults to `gpt-6-luna`.
+4. Do not add `RENTCAST_API_KEY` to a free Render service. RentCast is optional, and the app's 40-request counter is a local SQLite file. Render Free can restart or spin down and loses local files, so that counter would not be a durable billing safeguard. Without the RentCast key, the app uses its included snapshot instead.
+5. After deployment, copy the service's `onrender.com` URL into this README, `report.html`, and `slides.html`. Test it in a private/incognito window and note the first request may take about a minute after idle.
+
+Render Free web services spin down after 15 minutes without traffic and have an ephemeral filesystem. Uploaded leases are not saved by this app, but local SQLite state is not durable on that plan. See the [Render Free instance limits](https://render.com/docs/free), [FastAPI deploy guide](https://render.com/docs/deploy-fastapi), and [environment variable docs](https://render.com/docs/configure-environment-variables).
 
 ## What it does
 
