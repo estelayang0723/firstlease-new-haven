@@ -1,5 +1,8 @@
 # FirstLease New Haven
 
+**GitHub repository:** [https://github.com/estelayang0723/firstlease-new-haven](https://github.com/estelayang0723/firstlease-new-haven)
+**Online app:** Deployment pending
+
 A Yale SOM-centered housing search and lease-to-move-in assistant for international students renting in New Haven. It helps compare source-linked apartment-community plan/pricing snapshots by floorplan, listed rent, utilities, availability, and approximate commute; a local retrieval chatbot answers questions from those records. The original lease analysis and move-in checklist remain available as a second workflow.
 
 ## Run locally
